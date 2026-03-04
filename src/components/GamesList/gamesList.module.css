@@ -1,0 +1,15 @@
+.game{
+    background-color: rgb(202, 201, 201);
+    padding: 20px;
+    border: 1px solid black;
+    width: 24%;
+}
+.games{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto;
+    justify-content: center;
+}

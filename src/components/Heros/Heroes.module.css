@@ -1,0 +1,13 @@
+.hero{
+    border: 1px solid black;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+.heroes div{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}

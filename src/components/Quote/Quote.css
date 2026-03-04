@@ -1,0 +1,20 @@
+.quote{
+    background-color: rgb(238, 238, 238);
+    border-radius: 5px;
+    border: 1px solid rgb(164, 163, 163);
+    min-width: 400px;
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px;
+
+}
+.quote>blockquote{
+    text-align: center;
+    font-style: italic;
+}
+.quote>p{
+    text-align: right;
+    font-weight: 700;
+}

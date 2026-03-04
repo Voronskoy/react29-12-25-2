@@ -1,0 +1,18 @@
+.song {
+  background-color: rgb(225, 224, 224);
+  width: 250px;
+  border: 1px solid;
+  text-align: center;
+  padding: 20px;
+  border-radius: 7px;
+}
+.song > img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.playList {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
