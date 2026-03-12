@@ -1,0 +1,11 @@
+@use "/src/assets/styles/colors" as *;
+
+.wrapper {
+  background-color: $light;
+  width: 450px;
+  margin: auto;
+  padding: 20px;
+  h2{
+    text-align: center;
+  }
+}

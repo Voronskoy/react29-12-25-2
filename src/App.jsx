@@ -1,9 +1,8 @@
-import GamesList from "./components/GamesList/GamesList";
-import HerosList from "./components/Heros/HerosList";
+import LaptopConfig from './components/LaptopConfig/LaptopConfig';
 function App() {
   return (
     <>
-      <HerosList />
+      <LaptopConfig />
     </>
   );
 }
