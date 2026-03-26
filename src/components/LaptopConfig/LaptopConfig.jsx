@@ -59,43 +59,83 @@ const LaptopConfig = () => {
   };
 
   const calculate = () => {
-    const cpuPrice = laptopData.processors.find((p)=>p.name=== cpuSelect)?.price || 0
-    const totalPrice = cpuPrice
-    const newResult = {cpuSelect,ramSelect,optSelect,amountSelect,totalPrice}
+    const cpuPrice =
+      laptopData.processors.find((p) => p.name === cpuSelect)?.price || 0;
+    const ramPrice =
+      laptopData.ramVariants.find((r) => r.name === ramSelect)?.price || 0;
+    const optionPrice = optSelect.reduce((acc, opt) => {
+      const optPrice =
+        laptopData.extraOptions.find((o) => o.name === opt)?.price || 0;
+      return acc + optPrice;
+    }, 0);
+    const totalPrice = (optionPrice + ramPrice + cpuPrice) * amountSelect;
+    const newResult = {
+      cpuSelect,
+      ramSelect,
+      optSelect,
+      amountSelect,
+      totalPrice,
+    };
     setResult(newResult);
   };
   return (
-    <article className={styles.wrapper}>
-      <h2>Конфігуратор ноутбука</h2>
-      <label>
-        <span>1. Виберіть процесор</span>
-        <select value={cpuSelect} onChange={changeCpu}>
-          <option value="">-- оберіть процесор --</option>
-          {laptopData.processors.map(showOption)}
-        </select>
-      </label>
-      <div>
-        <span>2. Оберіть обсяг оперативної пам’яті</span>
-        {laptopData.ramVariants.map(showRadio)}
-      </div>
-      <div>
-        <span>3. Додаткові опції</span>
-        {laptopData.extraOptions.map(showCheckBox)}
-      </div>
-      <label>
-        <span>4. Кількість пристроїв</span>
-        <input
-          type="number"
-          min={1}
-          max={100}
-          value={amountSelect}
-          onChange={changeAmount}
-        />
-      </label>
-      <button disabled={!(cpuSelect && ramSelect)} onClick={calculate}>
-        Сформувати кошик
-      </button>
-    </article>
+    <section className={styles.wrapper}>
+      <article>
+        <h2>Конфігуратор ноутбука</h2>
+        <label>
+          <span>1. Виберіть процесор</span>
+          <select value={cpuSelect} onChange={changeCpu}>
+            <option value="">-- оберіть процесор --</option>
+            {laptopData.processors.map(showOption)}
+          </select>
+        </label>
+        <div>
+          <span>2. Оберіть обсяг оперативної пам’яті</span>
+          {laptopData.ramVariants.map(showRadio)}
+        </div>
+        <div>
+          <span>3. Додаткові опції</span>
+          {laptopData.extraOptions.map(showCheckBox)}
+        </div>
+        <label>
+          <span>4. Кількість пристроїв</span>
+          <input
+            type="number"
+            min={1}
+            max={100}
+            value={amountSelect}
+            onChange={changeAmount}
+          />
+        </label>
+        <button disabled={!(cpuSelect && ramSelect)} onClick={calculate}>
+          Сформувати кошик
+        </button>
+      </article>
+      {result && (
+        <article>
+          <h3>Ваше замовлення:</h3>
+          <p>
+            <em>Процесор:</em> {result.cpuSelect}
+          </p>
+          <p>
+            <em>ОЗП:</em>
+            {result.ramSelect}
+          </p>
+          <p>
+            <em>Опції:</em>
+            {result.optSelect.join(", ")}
+          </p>
+          <p>
+            <em>Кількість:</em>
+            {result.amountSelect}
+          </p>
+          <p>
+            <em>Підсумкова сума:</em>
+            {result.totalPrice}
+          </p>
+        </article>
+      )}
+    </section>
   );
 };
 
