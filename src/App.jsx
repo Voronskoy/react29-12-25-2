@@ -1,8 +1,9 @@
-import LaptopConfig from './components/LaptopConfig/LaptopConfig';
+
+import QuotesList from './components/QuotesList/QuotesList';
 function App() {
   return (
     <>
-      <LaptopConfig />
+      <QuotesList />
     </>
   );
 }

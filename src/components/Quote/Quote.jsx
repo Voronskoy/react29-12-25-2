@@ -3,7 +3,7 @@ import "./Quote.css";
 
 const Quote = (props) => {
   return (
-    <div className="quote">
+    <div>
       <blockquote>{props.text}</blockquote>
       <p>{props.author}</p>
     </div>

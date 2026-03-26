@@ -1,0 +1,21 @@
+@use "/src/assets/styles/colors" as *;
+@use "/src/assets/styles/mixins" as *;
+.quotes {
+  @include wrapper();
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  & > div {
+    @include block();
+    width: 25%;
+    border: 1px solid rgb(163, 163, 163);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    & > p {
+      text-align: right;
+      margin-top: auto;
+    }
+  }
+}
