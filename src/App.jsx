@@ -1,9 +1,9 @@
 
-import QuotesList from './components/QuotesList/QuotesList';
+import UploudFile from './components/UploudFile/UploudFile';
 function App() {
   return (
     <>
-      <QuotesList />
+      <UploudFile />
     </>
   );
 }

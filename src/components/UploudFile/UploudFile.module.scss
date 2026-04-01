@@ -1,0 +1,33 @@
+@use "/src/assets/styles/colors" as *;
+@use "/src/assets/styles/mixins" as *;
+.wrapper {
+  background-color: $colorBlack;
+  color: $light;
+  @include block();
+  margin: auto;
+  text-align: center;
+  border-radius: 10px;
+
+  & > button {
+    background-color: $colorBtn;
+    padding: 1em;
+    color: $light;
+    font-weight: 700;
+    border-radius: 10px;
+    &:disabled{
+        cursor: not-allowed;
+    }
+  }
+}
+.progresBar {
+  height: 1em;
+  width: 100%;
+  background-color: $dark;
+  border-radius: 15px;
+  & > .progres {
+    background-color: $access;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+  }
+}
