@@ -1,12 +1,9 @@
-
-import UploudFile from './components/UploudFile/UploudFile';
-import CheckActivities from './components/CheckActivities/CheckActivities';
+import MoodTracker from "./components/MoodTracker/MoodTracker";
 
 function App() {
   return (
     <>
-      <UploudFile />
-      <CheckActivities />
+      <MoodTracker />
     </>
   );
 }

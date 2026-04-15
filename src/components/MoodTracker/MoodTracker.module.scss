@@ -1,0 +1,9 @@
+@use "/src/assets/styles/mixins" as *;
+
+.tracker {
+  @include wrapper();
+  span {
+    font-size: 3em;
+    cursor: pointer;
+  }
+}
