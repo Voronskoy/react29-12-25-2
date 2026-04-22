@@ -1,9 +1,16 @@
 import MoodTracker from "./components/MoodTracker/MoodTracker";
+import TextSizeWrapper from "./components/TextSizeWrapper/TextSizeWrapper";
+import GamesList from './components/GamesList/GamesList';
 
 function App() {
   return (
     <>
-      <MoodTracker />
+      <TextSizeWrapper>
+        <MoodTracker />
+      </TextSizeWrapper>
+      <TextSizeWrapper>
+        <GamesList />
+      </TextSizeWrapper>
     </>
   );
 }

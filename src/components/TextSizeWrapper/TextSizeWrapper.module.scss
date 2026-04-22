@@ -1,0 +1,15 @@
+
+.controls {
+  button {
+    padding: 0.5em;
+    margin: 0.2em;
+    border-radius: 7px;
+    border: none;
+    background-color:black;
+    color: aliceblue;
+  }
+}
+button.active {
+  background-color: rgb(142, 0, 190);
+  color: aliceblue;
+}
