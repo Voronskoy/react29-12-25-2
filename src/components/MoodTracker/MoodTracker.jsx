@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
-import styles from './MoodTracker.module.scss'
+import { useState, useEffect, useContext } from "react";
+import styles from "./MoodTracker.module.scss";
+import { ClickContext } from "./../../context/index";
 const moods = ["😄", "🙂", "😐", "😔", "😡"];
 const loadHistoryMood = () => {
   try {
@@ -10,6 +11,7 @@ const loadHistoryMood = () => {
   }
 };
 const MoodTracker = () => {
+  const { setCliclCount } = useContext(ClickContext);
   const [selectMood, setSelectMood] = useState("");
   const [historyMood, setHistoryMood] = useState(loadHistoryMood);
   useEffect(() => {
@@ -36,8 +38,9 @@ const MoodTracker = () => {
   const clearHistoryMood = () => {
     setHistoryMood([]);
   };
+  const countClick = () => setCliclCount((prev) => prev + 1);
   return (
-    <section className={styles.tracker}>
+    <section className={styles.tracker} onClick={countClick}>
       <h2>Як ти сьогодні?</h2>
       <div>{moods.map(showMood)}</div>
       {selectMood && <p>Твій вибір: {selectMood}</p>}

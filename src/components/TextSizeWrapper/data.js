@@ -1,5 +1,9 @@
 const TEXT_SIZE_OPTIONS = {
-  small: {
+  Zsmall: {
+  label: "A--",
+  fontSize: 10,
+},
+    small: {
     label: "A-",
     fontSize: 14,
   },
