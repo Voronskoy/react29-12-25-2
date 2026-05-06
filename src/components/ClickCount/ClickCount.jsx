@@ -1,9 +1,7 @@
-import { useContext } from "react";
-import { ClickContext } from "./../../context/index";
+import { withClickContext } from "../HOCs";
 
-const ClickCount = () => {
-  const { cliclCount, setCliclCount } = useContext(ClickContext);
-  const countClick = () => setCliclCount((prev) => prev + 1);
+const ClickCount = (props) => {
+  const { cliclCount, countClick } = props;
   return (
     <div onClick={countClick}>
       <h2>Глобальний лічильник кліків</h2>
@@ -11,5 +9,5 @@ const ClickCount = () => {
     </div>
   );
 };
-
-export default ClickCount;
+const ClickCountWith = withClickContext(ClickCount);
+export default ClickCountWith;
