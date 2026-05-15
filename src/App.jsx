@@ -1,22 +1,36 @@
-import { useState } from "react";
-import MoodTracker from "./components/MoodTracker/MoodTracker";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+
 import TextSizeWrapper from "./components/TextSizeWrapper/TextSizeWrapper";
-import GamesList from "./components/GamesList/GamesList";
-import ClickCount from "./components/ClickCount/ClickCount";
-import { ClickContext } from "./context";
+import Header from "./components/Header/Header";
+import HomePage from "./pages/HomePage";
+import HerosPage from "./pages/HerosPage";
+import ListPage from "./pages/ListPage";
+import PlayList from './components/PlayList/PlayList';
+import GamesList from './components/GamesList/GamesList';
+import QuotesList from './components/QuotesList/QuotesList';
+
 
 function App() {
-  const [cliclCount, setCliclCount] = useState(0);
   return (
-    <ClickContext.Provider value={{ cliclCount, setCliclCount }}>
-      <ClickCount />
-      <TextSizeWrapper>
-        <MoodTracker />
-      </TextSizeWrapper>
-      <TextSizeWrapper>
-        <GamesList />
-      </TextSizeWrapper>
-    </ClickContext.Provider>
+    <BrowserRouter>
+      <div>
+        <TextSizeWrapper>
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/heroes" element={<HerosPage />} />
+              <Route path="/list" element={<ListPage />}>
+                <Route index element={<Navigate to='quote' replace/>}/>
+                <Route path="play" element={<PlayList/>} />
+              
+                <Route path="quote" element={<QuotesList/>}/>
+              </Route>
+            </Routes>
+          </main>
+        </TextSizeWrapper>
+      </div>
+    </BrowserRouter>
   );
 }
 
