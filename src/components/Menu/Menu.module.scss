@@ -1,0 +1,22 @@
+.menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  li {
+    margin: 15px;
+
+    .link {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+      background-color: rgb(181, 181, 181);
+      padding: 15px;
+      &:hover {
+        background-color: rgb(166, 213, 254);
+      }
+    }
+    .active{
+        background-color: rgb(166, 213, 254);
+    }
+  }
+}
