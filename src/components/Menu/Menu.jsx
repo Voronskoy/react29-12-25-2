@@ -4,7 +4,8 @@ import classNames from "classnames";
 import styles from "./Menu.module.scss";
 
 const Menu = () => {
-  const getActiveClass = ({isActive}) => classNames(styles.link,{[styles.active]:isActive});
+  const getActiveClass = ({ isActive }) =>
+    classNames(styles.link, { [styles.active]: isActive });
   return (
     <nav>
       <ul className={styles.menu}>
@@ -21,6 +22,11 @@ const Menu = () => {
         <li>
           <NavLink to="/list" className={getActiveClass}>
             List
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/camp" className={getActiveClass}>
+            Camp
           </NavLink>
         </li>
       </ul>
