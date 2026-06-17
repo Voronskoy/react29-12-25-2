@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { campSchema } from "./../../validation/index";
-import styles from './FormikCamp.module.scss'
+import styles from "./FormikCamp.module.scss";
 
 const directionLabels = {
   "content-creator": "Контент-кріейтор",
@@ -25,6 +25,8 @@ const initialState = {
   isReady: false,
 };
 const FormikCamp = () => {
+  const [isSubmit, setIsSubmit] = useState(false);
+  const [dataUser, setDataUser] = useState(null);
   const showOption = ([key, value]) => (
     <option key={key} value={key}>
       {value}
@@ -36,13 +38,14 @@ const FormikCamp = () => {
       <span>{value}</span>
     </label>
   );
-  const handleSubmit = (values) => {
-    alert('submit')
-    console.log(values);
+  const handleSubmit = (values, formikBag) => {
+    setIsSubmit(true);
+    setDataUser(values);
+    formikBag.resetForm();
   };
   return (
     <div>
-      <div>
+      {!isSubmit && <div className={styles.box}>
         <h2>Заявка на участь</h2>
         <Formik
           initialValues={initialState}
@@ -65,12 +68,16 @@ const FormikCamp = () => {
                 </label>
                 <div className={styles.row}>
                   <label>
-                    <span>Вік<span>*</span></span>
+                    <span>
+                      Вік<span>*</span>
+                    </span>
                     <Field type="number" name="age" placeholder="12" />
                     <ErrorMessage name="age" />
                   </label>
                   <label>
-                    <span>email<span>*</span></span>
+                    <span>
+                      email<span>*</span>
+                    </span>
                     <Field
                       type="email"
                       name="email"
@@ -80,13 +87,17 @@ const FormikCamp = () => {
                   </label>
                 </div>
                 <label>
-                  <span>Напрям табору<span>*</span></span>
+                  <span>
+                    Напрям табору<span>*</span>
+                  </span>
                   <Field as="select" name="derection">
                     {Object.entries(directionLabels).map(showOption)}
                   </Field>
                 </label>
                 <fieldset>
-                  <legend>Рівень досвіду<span>*</span></legend>
+                  <legend>
+                    Рівень досвіду<span>*</span>
+                  </legend>
                   <div>{Object.entries(experienceLabels).map(showRadio)}</div>
                   <ErrorMessage name="experience" />
                 </fieldset>
@@ -109,15 +120,31 @@ const FormikCamp = () => {
             );
           }}
         </Formik>
-      </div>
-      <div>
-        <h2>Порада</h2>
-        <p>
-          Напиши в мотивації щось конкретне: який контент хочеш створити, яку
-          гру мрієш зібрати або який трек записати. Так заявка виглядатиме
-          сильніше.
-        </p>
-      </div>
+      </div>}
+      {isSubmit ? (
+        <div >
+          <p>Заявку прийнято!</p>
+          <h2>{dataUser.nickname}, ти в списку кандидатів! </h2>
+          <p>Твоя заявка на Teen Creator Camp прийнята. Ми зв'яжемося через {dataUser.email} і запросимо на відбірковий дзвінок.</p>
+          <dl>
+            <dt>Напрям</dt>
+            <dd>{dataUser.direction}</dd>
+            <dt>Рівень</dt>
+            <dd>{dataUser.experience}</dd>
+            <dt>Вік</dt>
+            <dd>{dataUser.age}</dd>
+          </dl>
+        </div>
+      ) : (
+        <div className={styles.box}>
+          <h2>Порада</h2>
+          <p>
+            Напиши в мотивації щось конкретне: який контент хочеш створити, яку
+            гру мрієш зібрати або який трек записати. Так заявка виглядатиме
+            сильніше.
+          </p>
+        </div>
+      )}
     </div>
   );
 };

@@ -8,7 +8,7 @@ export const campSchema = Yup.object({
   age: Yup.number().min(12).max(18).required("Обов'язкове поле"),
   email: Yup.string().trim().email().required("Обов'язкове поле"),
   direction: Yup.string().required("Обов'язкове поле"),
-  experienc: Yup.string().required("Обов'язкове поле"),
+  experience: Yup.string().required("Обов'язкове поле"),
   about: Yup.string().trim().required("Обов'язкове поле"),
   isReady: Yup.boolean(),
 });

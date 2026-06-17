@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 0.5em;
   max-width: 600px;
+  margin: auto;
   & > * {
     display: flex;
     flex-direction: column;
@@ -21,4 +22,9 @@
       flex-direction: column;
     }
   }
+}
+.box{
+  border:1px solid rgb(125, 124, 124) ;
+  border-radius: 16px;
+  padding: 2em;
 }
