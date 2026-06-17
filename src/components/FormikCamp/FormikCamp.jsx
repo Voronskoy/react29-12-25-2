@@ -64,7 +64,7 @@ const FormikCamp = () => {
                     placeholder="Наприклад, PixelFox"
                     name="nickname"
                   />
-                  <ErrorMessage name="nickname" />
+                  <ErrorMessage name="nickname" component='p' className={styles.error}/>
                 </label>
                 <div className={styles.row}>
                   <label>
@@ -72,7 +72,7 @@ const FormikCamp = () => {
                       Вік<span>*</span>
                     </span>
                     <Field type="number" name="age" placeholder="12" />
-                    <ErrorMessage name="age" />
+                    <ErrorMessage name="age" component='p' className={styles.error} />
                   </label>
                   <label>
                     <span>
@@ -83,7 +83,7 @@ const FormikCamp = () => {
                       name="email"
                       placeholder="camp@example.com"
                     />
-                    <ErrorMessage name="email" />
+                    <ErrorMessage name="email" component='p' className={styles.error}/>
                   </label>
                 </div>
                 <label>
