@@ -9,6 +9,7 @@ import PlayList from './components/PlayList/PlayList';
 import GamesList from './components/GamesList/GamesList';
 import QuotesList from './components/QuotesList/QuotesList';
 import CampPage from './pages/CampPage';
+import BooksPage from './pages/BooksPage';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/books" element={<BooksPage />} />
               <Route path="/heroes" element={<HerosPage />} />
                 <Route path="/camp" element={<CampPage />} />
               <Route path="/list" element={<ListPage />}>

@@ -29,6 +29,9 @@ const Menu = () => {
             Camp
           </NavLink>
         </li>
+        <li>
+          <NavLink to='/books' className={getActiveClass}>Books</NavLink>
+        </li>
       </ul>
     </nav>
   );
