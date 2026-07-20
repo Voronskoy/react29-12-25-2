@@ -10,3 +10,8 @@
     width: 95%;
     margin: auto;
 }
+@mixin borderRadius($r){
+    border-radius:$r;
+    border:1px solid $dark;
+    padding: 1em;
+}

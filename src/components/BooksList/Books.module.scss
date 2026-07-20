@@ -1,0 +1,16 @@
+@use "/src/assets/styles/colors" as *;
+@use "/src/assets/styles/mixins" as *;
+.booksList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+  
+   @include borderRadius(15px);
+}
+.bookCard {
+  @include borderRadius(15px);
+  min-width: 350px;
+  flex: 1;
+
+}
